@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<jsp:useBean id="loginUser" class="homework3.model.User" scope="session"/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,23 +7,23 @@
         <title>歡迎登入105人力公司網站</title>
     </head>
     <body>
-        <h1>${sessionScope["accountName"]}, 歡迎登入105人力公司網站</h1>
+        <h1>${loginUser["accountName"]}, 歡迎登入105人力公司網站</h1>
         <table border="0">
             <tr>
                 <th style="text-align:left">姓名:</th>
-                <td>${sessionScope["name"]}</td>
+                <td>${loginUser["name"]}</td>
             </tr>
             <tr>
                 <th style="text-align:left">住址:</th>
-                <td>${sessionScope["address"]}</td>
+                <td>${loginUser["address"]}</td>
             </tr>
             <tr>
                 <th style="text-align:left">電話:</th>
-                <td>${sessionScope["phoneNumber"]}</td>
+                <td>${loginUser["phoneNumber"]}</td>
             </tr>
             <tr>
                 <th style="text-align:left">學歷:</th>
-                <td>${sessionScope["education"]}</td>
+                <td>${loginUser["education"]}</td>
             </tr>
         </table>
         <br>

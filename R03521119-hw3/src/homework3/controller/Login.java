@@ -68,11 +68,7 @@ public class Login extends HttpServlet {
                     // Get user information and write them as session attributes
                     User user = userDB.get(accountName);
                     session = request.getSession();
-                    session.setAttribute("name", user.getName());
-                    session.setAttribute("address", user.getAddress());
-                    session.setAttribute("phoneNumber", user.getPhoneNumber());
-                    session.setAttribute("education", user.getEducation());
-                    session.setAttribute("accountName", user.getAccountName());
+                    session.setAttribute("loginUser", user);
 
                     // Create cookies for auto login if the checkbox is checked
                     if (request.getParameter("autoLogin") != null) {
@@ -124,11 +120,7 @@ public class Login extends HttpServlet {
                 if (AccountCheck.checkPassword(accountName, password, userDB)) {
                     User user = userDB.get(accountName);
                     session = request.getSession();
-                    session.setAttribute("name", user.getName());
-                    session.setAttribute("address", user.getAddress());
-                    session.setAttribute("phoneNumber", user.getPhoneNumber());
-                    session.setAttribute("education", user.getEducation());
-                    session.setAttribute("accountName", user.getAccountName());
+                    session.setAttribute("loginUser", user);
                     jspPageToForward = "userLoginPage.jsp";
                 } else {
                     request.setAttribute("errorCode", "輸入密碼錯誤!");
